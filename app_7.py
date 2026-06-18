@@ -1,3 +1,12 @@
+import subprocess
+import sys
+
+# Force the cloud server to install missing libraries automatically
+try:
+    import plotly.express as px
+    import sklearn
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "plotly", "scikit-learn"])
 import streamlit as st
 import pandas as pd
 import pickle
